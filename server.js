@@ -6,6 +6,12 @@ const express = require('express');
 const {search} = require('./spotify')
 const app = express();
 
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "https://q35x7x4979.codesandbox.io");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
 app.get('/', async function(request, response) {
   try {
   const results = await search(request.query.q)
