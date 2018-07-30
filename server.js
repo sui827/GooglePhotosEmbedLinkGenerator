@@ -2,14 +2,15 @@
 // where your node app starts
 
 // init project
-var express = require('express');
-var app = express();
+const express = require('express');
+const {search} = require('./spotify')
+const app = express();
 
 app.get('/', function(request, response) {
-  response.json({ok: true});
+  response.json(search());
 });
 
 // listen for requests :)
-var listener = app.listen(process.env.PORT, function() {
+const listener = app.listen(process.env.PORT, function() {
   console.log('Your app is listening on port ' + listener.address().port);
 });
