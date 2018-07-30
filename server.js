@@ -6,8 +6,14 @@ const express = require('express');
 const {search} = require('./spotify')
 const app = express();
 
-app.get('/', function(request, response) {
-  response.json(search());
+app.get('/', async function(request, response) {
+  try {
+  const results = await search(request.query.q)
+  response.json(results);
+  }
+  catch(e) {
+   response.status(500) 
+  }
 });
 
 // listen for requests :)
