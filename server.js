@@ -3,7 +3,7 @@
 
 // init project
 const express = require('express');
-const {search} = require('./spotify')
+const {getAlbum} = require('./google-photos')
 const app = express();
 
 app.use(function(req, res, next) {
@@ -18,7 +18,7 @@ app.use(function(req, res, next) {
 
 app.get('/', async function(request, response) {
   try {
-  const results = await search(request.query.q)
+  const results = await getAlbum(request.query.id)
   response.json(results);
   }
   catch(e) {
