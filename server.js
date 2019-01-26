@@ -7,9 +7,8 @@ const {getAlbum} = require('./google-photos')
 const app = express();
 
 app.use(function(req, res, next) {
-  const allowedOrigins = ['https://q35x7x4979.codesandbox.io', 'https://3v5oy8w1rq.codesandbox.io'];
   const origin = req.headers.origin;
-  if(allowedOrigins.includes(origin)){
+  if(origin){
        res.setHeader('Access-Control-Allow-Origin', origin);
   }
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
