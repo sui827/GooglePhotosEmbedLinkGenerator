@@ -6,6 +6,7 @@ const express = require('express');
 const {getAlbum} = require('./google-photos')
 const app = express();
 
+
 app.use(function(req, res, next) {
   const origin = req.headers.origin;
   if(origin){
@@ -17,11 +18,11 @@ app.use(function(req, res, next) {
 
 app.get('/', async function(request, response) {
   try {
-  const results = await getAlbum(request.query.id)
-  response.json(results);
+    const results = await getAlbum(request.query.id)
+    response.json(results);
   }
   catch(e) {
-   response.status(500) 
+    response.status(500) 
   }
 });
 
