@@ -34,6 +34,9 @@ app.get('/', function(req, res, next) {
 app.get('/:id', async function(req, res, next) {
   try {
     const results = await getAlbum(req.params.id);
+    if (typeof(results) != 'object') {
+      throw "ero"
+    }
     data.id = req.params.id;
     data.links = results;
     res.render("./id.ejs", data)

@@ -8,6 +8,7 @@ $("#width").change(function(e) {
   formChange();
 })
 
+
 $("#md").change(function(e) {
   formChange();
 })
@@ -24,3 +25,5 @@ function formChange() {
     $(this).val(text)
   })
 }
+
+formChange()
