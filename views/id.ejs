@@ -5,19 +5,32 @@
 </nav>
 
 <main class="container-lg">
-  <%-include('components/form')%>
+  <form action="/api/id" method="post">
+    <label for="url">ALBUM ID:</label>
+    <div class="form-row">
+      <div class="col">
+        <input type="text" id="url" name="url" class="form-control" 
+               placeholder="https://photos.app.goo.gl/ALBUM_ID" 
+               value="<%=`https://photos.app.goo.gl/${id}`%>"
+        >
+      </div>
+      <div class="col-auto">
+        <button class="btn btn-secondary">GENERATE</button>
+      </div>
+    </div>
+  </form>
   
-  <div class="row mx-0 align-items-center">
+  <div class="row mx-0 align-items-center my-2">
     <label for="width" class="my-0">WIDTH:</label>
     <input type="number" step="120" id="width" class="form-control form-control-sm mx-2 my-0" style="width: 120px;" placeholder="Number">
     <label for="md" class="mx-2 my-0">Markdown:</label>
-    <input type="checkbox" id="md" class="my-0">
+    <input type="checkbox" id="md" checked data-toggle="toggle" data-size="small" data-onstyle="success">
   </div>
   
   <div class="row mx-0">
     <%for(let link of links){%>
       <div class="photo-card col-6 col-md-4 col-lg-3 px-0">
-        <div class="img-box">
+        <div class="img-box" onclick="copy('<%=link%>')">
            <img src="<%=link%>=w240">
         </div>
         <div class="form-row">
