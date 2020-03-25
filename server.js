@@ -18,13 +18,19 @@ app.use(function(req, res, next) {
   next();
 });
 
+let data = {};
+data.title = "Google Photos Embed Link Generator";
+
 app.get('/', function(req, res, next) {
-  let data = {};
-  data.title = "Google Photos Embed Link Generator"
   res.render("./index.ejs", data)
 });
 
-app.get('/:id', async function(request, response) {
+app.get('/:id', function(req, res, next) {
+  data.id = req.params.id;
+  res.render("./id.ejs", data)
+});
+
+app.get('/api/:id', async function(request, response) {
   try {
     const results = await getAlbum(request.params.id)
     response.json(results);
