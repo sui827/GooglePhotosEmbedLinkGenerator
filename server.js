@@ -25,9 +25,16 @@ app.get('/', function(req, res, next) {
   res.render("./index.ejs", data)
 });
 
-app.get('/:id', function(req, res, next) {
-  data.id = req.params.id;
-  res.render("./id.ejs", data)
+app.get('/:id', async function(req, res, next) {
+  try {
+    const results = await getAlbum(req.params.id);
+    data.id = req.params.id;
+    data.links = results.split(',');
+    res.render("./id.ejs", data)
+  }
+  catch(e) {
+    response.status(500) ;
+  }
 });
 
 app.get('/api/:id', async function(request, response) {
