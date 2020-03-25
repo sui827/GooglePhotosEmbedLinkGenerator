@@ -34,7 +34,7 @@ app.get('/', function(req, res, next) {
 app.get('/:id', async function(req, res, next) {
   try {
     const results = await getAlbum(req.params.id);
-    if (typeof(results) != 'object') {
+    if (!results.length) {
       throw "ero"
     }
     data.id = req.params.id;
@@ -42,7 +42,7 @@ app.get('/:id', async function(req, res, next) {
     res.render("./id.ejs", data)
   }
   catch(e) {
-    res.render("./notfound.ejs");
+    res.render("./notfound.ejs", data);
   }
 });
 
