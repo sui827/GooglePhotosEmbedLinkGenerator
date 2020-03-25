@@ -4,6 +4,10 @@ $(".copy-btn").click(function(e) {
 
 function copy(link) {
   const text =document.getElementById(link);
-  text.select()
-  document.execCommand("copy")
+  text.select();
+  document.execCommand("copy");
 }
+
+$("#width").change(function(e) {
+  console.log($(this).val())
+})

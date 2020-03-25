@@ -7,11 +7,11 @@
 <main class="container-lg">
   <%-include('components/form')%>
   
-  <div >
+  <div class="row mx-0 align-items-center">
     <label for="width" class="my-0">WIDTH:</label>
-    <input type="number" id="width" class="form-control mx-2 my-0" v-model="width" style="width: 120px;" placeholder="Number">
+    <input type="number" id="width" class="form-control form-control-sm mx-2 my-0" style="width: 120px;" placeholder="Number">
     <label for="md" class="mx-2 my-0">Markdown:</label>
-    <input type="checkbox" id="isMd" class="my-0" v-model="isMd">
+    <input type="checkbox" id="md" class="my-0">
   </div>
   
   <div class="row mx-0">
