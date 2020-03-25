@@ -16,9 +16,9 @@ app.use(function(req, res, next) {
   next();
 });
 
-app.get('/', function(req, res) {
-  return 
-})
+app.get('/', function(req, res, next) {
+  res.render("index.ejs")
+});
 
 app.get('/:id', async function(request, response) {
   try {
