@@ -27,6 +27,7 @@ let data = {};
 data.title = "Google Photos Embed Link Generator";
 
 app.get('/', function(req, res, next) {
+  data.id = "";
   res.render("./index.ejs", data)
 });
 

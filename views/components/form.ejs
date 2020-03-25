@@ -1,8 +1,11 @@
-<form action="/api/id" method="post">
-  <label for="url">ALBUM ID:</label>
+<form action="/api/id" method="post" class="my-3">
+  <label for="url" class="my-0">ALBUM ID:</label>
   <div class="form-row">
     <div class="col">
-      <input type="text" id="url" name="url" class="form-control" placeholder="https://photos.app.goo.gl/ALBUM_ID">
+      <input type="text" id="url" name="url" class="form-control" 
+             placeholder="https://photos.app.goo.gl/ALBUM_ID"
+             <%if(id) {%> value="https://photos.app.goo.gl/<%=id%>" <%}%>
+      >
     </div>
     <div class="col-auto">
       <button class="btn btn-secondary">GENERATE</button>
