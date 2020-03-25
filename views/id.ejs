@@ -13,10 +13,12 @@
            <img src="<%=link%>=w240">
         </div>
         <div class="form-row">
-          <input type="text" class="form-control" value="<%=link%>">
-          <button>
-            Copy
-          </button>
+          <div class="col pr-0">
+            <input type="text" class="form-control copy-val" value="<%=link%>">
+          </div>
+          <div class="col-auto pl-0">
+            <button class="btn btn-outline-dark copy-btn">Copy!</button>
+          </div>
         </div>
       </div>
     <%}%>
@@ -45,6 +47,5 @@
     box-sizing: border-box;
   }
 </style>
-
 
 <%-include('components/footer')%>
