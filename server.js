@@ -2,11 +2,15 @@
 // where your node app starts
 
 // init project
-const bodyParser = require('body-parser')
 const express = require('express');
 const {getAlbum} = require('./google-photos')
 const app = express();
+
+const bodyParser = require('body-parser')
 app.use(bodyParser.urlencoded({ extended: true }))
+
+app.use(express.static('public'));
+
 app.set("view engine", "ejs");
 
 // authorize CORS (for demo only)
