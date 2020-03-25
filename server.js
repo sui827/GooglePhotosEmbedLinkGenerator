@@ -16,6 +16,10 @@ app.use(function(req, res, next) {
   next();
 });
 
+app.get('/', function(req, res) {
+  return 
+})
+
 app.get('/:id', async function(request, response) {
   try {
     const results = await getAlbum(request.params.id)

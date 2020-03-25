@@ -17,7 +17,7 @@ async function getAlbum(id) {
     return extractPhotos(response.data)
   }
   catch(e) {
-    return null
+    return e
   }
 }
 
