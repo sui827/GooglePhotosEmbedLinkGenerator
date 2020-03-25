@@ -30,9 +30,6 @@ app.get('/:id', async function(req, res, next) {
     const results = await getAlbum(req.params.id);
     data.id = req.params.id;
     data.links = results;
-    for (let link of data.links) {
-      console.log(link)
-    }
     res.render("./id.ejs", data)
   }
   catch(e) {
@@ -40,8 +37,9 @@ app.get('/:id', async function(req, res, next) {
   }
 });
 
-app.post('/api/:id', async function(req, res) {
-  const url = req.params.url;
+app.post('/api/id', async function(req, res) {
+  console.log(req);
+  const url = req.body;
   const id = url.split("/").pop();
   res.redirect(`/${id}`)
 });
