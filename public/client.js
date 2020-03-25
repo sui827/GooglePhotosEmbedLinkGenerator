@@ -1,7 +1,3 @@
-$(".copy-btn").click(function(e) {
-  const url = $(this).parent('div').parent('div').parent('div').attr('id');
-})
-
 function copy(link) {
   const text =document.getElementById(link);
   text.select();
@@ -9,5 +5,22 @@ function copy(link) {
 }
 
 $("#width").change(function(e) {
-  console.log($(this).val())
+  formChange();
 })
+
+$("#md").change(function(e) {
+  formChange();
+})
+
+function formChange() {
+  $(".copy-val").each(function(i) {
+    let text = $(this).attr('id');
+    if ($("#width").val()) {
+      text += `=w${$("#width").val()}`
+    }
+    if ($("#md").prop('checked')) {
+      text = `![](${text})`
+    }
+    $(this).val(text)
+  })
+}
