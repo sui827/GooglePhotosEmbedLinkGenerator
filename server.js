@@ -19,7 +19,9 @@ app.use(function(req, res, next) {
 });
 
 app.get('/', function(req, res, next) {
-  res.render("./index.ejs", {title: "EXPRESS"})
+  let data = {};
+  data.title = "Google Photos Embed Link Generator"
+  res.render("./index.ejs", data)
 });
 
 app.get('/:id', async function(request, response) {
