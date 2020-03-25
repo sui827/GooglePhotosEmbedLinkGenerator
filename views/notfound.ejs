@@ -1,0 +1,23 @@
+<%- include('components/header') %>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark text-white">
+  <a class="navbar-brand" href="/"><%=title%></a>
+</nav>
+
+<main class="container-lg">
+  <label for="url">ALBUM ID:</label>
+  <div class="form-row">
+    <div class="col">
+      <input type="text" id="url" class="form-control" placeholder="https://photos.app.goo.gl/ALBUM_ID" value="https://photos.app.goo.gl/<%=id%>">
+    </div>
+    <div>
+      <button type="button" class="btn btn-secondary">GENERATE</button>
+    </div>
+    <%for(let link of links){%>
+      <%=link%>
+    <%}%>
+  </div>
+</main>
+
+
+<%- include('components/footer') %>

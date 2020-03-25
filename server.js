@@ -36,18 +36,14 @@ app.get('/:id', async function(req, res, next) {
     res.render("./id.ejs", data)
   }
   catch(e) {
-    res.status(500) ;
+    res.render("./notfound.ejs");
   }
 });
 
-app.get('/api/:id', async function(request, response) {
-  try {
-    const results = await getAlbum(request.params.id)
-    response.json(results);
-  }
-  catch(e) {
-    response.status(500) 
-  }
+app.post('/api/:id', async function(req, res) {
+  const url = req.params.url;
+  const id = url.split("/").pop();
+  res.redirect(`/${id}`)
 });
 
 // listen for requests :)
