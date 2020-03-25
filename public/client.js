@@ -1,3 +1,3 @@
-$(".copy-btn").click(() => {
-  console.log($(this).parent().parent().attr('id'))
+$(".copy-btn").click(function(e) {
+  const url = $(this).parent('div').parent('div').parent('div').attr('id');
 })
