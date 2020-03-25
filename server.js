@@ -2,10 +2,11 @@
 // where your node app starts
 
 // init project
+const bodyParser = require('body-parser')
 const express = require('express');
 const {getAlbum} = require('./google-photos')
 const app = express();
-
+app.use(bodyParser.urlencoded({ extended: true }))
 app.set("view engine", "ejs");
 
 // authorize CORS (for demo only)
@@ -37,9 +38,8 @@ app.get('/:id', async function(req, res, next) {
   }
 });
 
-app.post('/api/id', async function(req, res) {
-  console.log(req);
-  const url = req.body;
+app.post('/api/id', function(req, res) {
+  const url = req.body.url;
   const id = url.split("/").pop();
   res.redirect(`/${id}`)
 });
