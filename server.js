@@ -6,6 +6,8 @@ const express = require('express');
 const {getAlbum} = require('./google-photos')
 const app = express();
 
+app.set("view engine", "ejs");
+
 // authorize CORS (for demo only)
 app.use(function(req, res, next) {
   const origin = req.headers.origin;
@@ -17,7 +19,7 @@ app.use(function(req, res, next) {
 });
 
 app.get('/', function(req, res, next) {
-  res.render("index.ejs")
+  res.render("./index.ejs", {title: "EXPRESS"})
 });
 
 app.get('/:id', async function(request, response) {
