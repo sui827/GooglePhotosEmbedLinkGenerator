@@ -15,7 +15,7 @@ $("#md").change(function(e) {
 })
 
 function formChange() {
-  
+  setValues();
   let width = $("#width").val();
   let md = $("#md").prop('checked');
   let query
@@ -46,3 +46,4 @@ function setValues() {
   
 }
 // formChange()
+setValues()
