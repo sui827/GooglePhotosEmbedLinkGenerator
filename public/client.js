@@ -35,7 +35,7 @@ function formChange() {
   } else if (!md) {
     query = `?md=false`
   }
-  
+  history.pushState(null, null, query);
 }
 
 formChange()

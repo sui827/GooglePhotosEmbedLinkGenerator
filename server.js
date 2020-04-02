@@ -39,6 +39,10 @@ app.get('/:id', async function(req, res, next) {
     }
     data.id = req.params.id;
     data.links = results;
+    if (req.query.width) {
+      data.width = req.query.width;
+    }
+    data.md = req.query.md != "false" ? true : false;
     res.render("./id.ejs", data)
   }
   catch(e) {
