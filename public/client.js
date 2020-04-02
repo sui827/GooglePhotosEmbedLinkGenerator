@@ -6,6 +6,7 @@ function copy(link) {
 
 $("#width").change(function(e) {
   formChange();
+  
 })
 
 
@@ -14,18 +15,9 @@ $("#md").change(function(e) {
 })
 
 function formChange() {
+  
   let width = $("#width").val();
   let md = $("#md").prop('checked');
-  $(".copy-val").each(function(i) {
-    let text = $(this).attr('id');
-    if (width) {
-      text += `=w${width}`;
-    }
-    if (md) {
-      text = `![](${text})`
-    }
-    $(this).val(text)
-  })
   let query
   if (width) {
     query = `?width=${width}`
@@ -38,4 +30,19 @@ function formChange() {
   history.pushState(null, null, query);
 }
 
-formChange()
+function setValues() {
+  let width = $("#width").val();
+  let md = $("#md").prop('checked');
+  $(".copy-val").each(function(i) {
+    let text = $(this).attr('id');
+    if (width) {
+      text += `=w${width}`;
+    }
+    if (md) {
+      text = `![](${text})`
+    }
+    $(this).val(text)
+  })
+  
+}
+// formChange()
